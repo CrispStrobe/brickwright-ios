@@ -440,12 +440,10 @@ class Scratch3HandposeBlocks {
 			case 'onback':
 				this.runtime.ioDevices.video.enableVideo('environment');
 				this.runtime.ioDevices.video.mirror = false;
-				this.active = true;
 				break;
 			case 'onfront':
 				this.runtime.ioDevices.video.enableVideo('user');
 				this.runtime.ioDevices.video.mirror = true;
-				this.active = true;
 				break;
 			default:
 				this.runtime.ioDevices.video.mirror = !this.runtime.ioDevices.video.mirror;
