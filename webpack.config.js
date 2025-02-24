@@ -73,6 +73,18 @@ const baseConfig = new ScratchWebpackConfigBuilder(
             }
         ]
     })
+    
+    .addModuleRule({
+        test: /\.mp3$/,
+        resourceQuery: /arrayBuffer/,
+        type: 'javascript/auto',
+        use: [
+            {
+                loader: 'arraybuffer-loader'
+            }
+        ]
+    })
+
     .addModuleRule({
         test: /\.(svg|png|wav|mp3|gif|jpg)$/,
         resourceQuery: /^$/, // reject any query string
