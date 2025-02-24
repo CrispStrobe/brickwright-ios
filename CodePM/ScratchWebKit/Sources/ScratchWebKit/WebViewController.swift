@@ -74,6 +74,25 @@ public class WebViewController: UIViewController {
             }
         }
         
+        server["/:path"] = {request in
+             let start = request.path.index(request.path.startIndex, offsetBy: 1)
+             let end = request.path.endIndex
+             let filePath = Bundle.main.resourcePath! + "/ressources/\(request.path[start..<end])"
+             if let file = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+                 let mimeType = filePath.mimeType()
+                 return .raw(200, "OK", [
+                            "Access-Control-Allow-Origin": "*",
+                            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+                            "Content-Type": mimeType
+                        ], { writer in
+                            try writer.write(file)
+                        })
+             } else {
+                 return HttpResponse.notFound
+             }
+         }
+         
         // Ajout d'autres endpoints pour servir des modèles spécifiques
         addModelEndpoints(to: server)
         
