@@ -3,6 +3,21 @@ class ScratchLink {
 
     // Constructeur : initialise un nouveau ScratchLink ou un WebSocket classique si l'URL ne correspond pas
     constructor(url) {
+        // Match any WSS/WS connection ending in /scratch/ble or /scratch/bt
+        // This catches 127.0.0.1, localhost, and device-manager on ANY port.
+        const scratchLinkPattern = /^wss?:\/\/.*\/scratch\/(ble|bt)$/;
+
+        if (!scratchLinkPattern.test(url)) {
+            // Pass through standard WebSockets (like Multiplayer games)
+            return new ScratchLink.WebSocket(url);
+        }
+
+        console.log("🚀 CodePM: Intercepted Scratch Link connection:", url);
+        this.url = url;
+        this._open();
+    }
+    
+    constructor_old(url) {
         if (!url.startsWith('wss://device-manager.scratch.mit.edu:20110/scratch/')) {
             console.log(url)
             return new ScratchLink.WebSocket(url);

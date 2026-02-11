@@ -1,0 +1,169 @@
+<!doctype html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="google" value="notranslate"><link rel="shortcut icon" href="static/favicon.ico"><title>CodePM</title><style>#item {
+        width: 935px;
+        height: 300px;
+        background-color: rgba(39, 66, 105, 0.1);
+        border: 3px solid rgba(136, 136, 136, .5);
+        touch-action: none;
+        user-select: none;
+        padding-top: 60px;
+        position: absolute;
+        z-index: 100000;
+        display: none;
+        bottom: 20px;
+        -webkit-backdrop-filter: blur(5px);
+        left: calc((100vw - 935px)/2);
+        border-radius: 20px;
+        box-shadow: 6px 7px 10px #163680;
+        opacity:20%;
+    }
+         html {
+             -webkit-user-select: none;
+             -webkit-touch-callout: none;
+         }
+  .touch{
+        width: 50px;
+        height: 50px;
+        margin: 2px;
+        background-color: rgba(76, 151, 255);
+        border-radius: 10px;
+        font-size: 40px;
+        font-family: arial;
+        text-align: center;
+        float: left;
+        font-weight: 100;
+        color: white;
+        box-shadow: 3px 3px 1px #111111;
+
+  }
+
+    .touch.active{
+        background-color: rgba(0, 0, 0, 0.8);
+        color:white;
+        box-shadow: none;
+         }
+
+
+
+
+    #item:hover {
+      cursor: pointer;
+      background-color: rgba(39, 66, 105, 0.5);
+      opacity:100%;
+    }
+         .close{
+
+             width: 50px;
+             height: 50px;
+             margin: 2px;
+             background-color: rgb(255, 0, 0);
+             border-radius: 50%;
+             font-size: 40px;
+             font-family: helvetica;
+             text-align: center;
+             font-weight: 500;
+             color: white;
+             right: 10px;
+             position: absolute;
+             top: 2px;
+         }</style><script defer="defer" src="runtime.js"></script><script defer="defer" src="chunks/233.6737265086ea75dd76ea.js"></script><script defer="defer" src="chunks/63.4bbd73e79b1edd59f82b.js"></script><script defer="defer" src="chunks/741.b82c5f529b3e42008a78.js"></script><script defer="defer" src="gui.js"></script></head><body><div id="item"><div class="close" onclick="document.getElementById('item').style.display='none';">x</div><table style="background-color: rgba(255,255,255,0.7);border-radius: 10px;"><thead><tr><th></th><th><div id="touch15" class="touch" ontouchstart="touchStart(event, 'ArrowUp')" ontouchend="touchEnd(event, 'ArrowUp')">↑</div></th><th></th><th><div id="touch18" class="touch" ontouchstart="touchStart(event, '0')" ontouchend="touchEnd(event, '0')">0</div></th><th><div id="touch19" class="touch" ontouchstart="touchStart(event, '1')" ontouchend="touchEnd(event, '1')">1</div></th><th><div id="touch20" class="touch" ontouchstart="touchStart(event, '2')" ontouchend="touchEnd(event, '2')">2</div></th><th><div id="touch21" class="touch" ontouchstart="touchStart(event, '3')" ontouchend="touchEnd(event, '3')">3</div></th><th><div id="touch22" class="touch" ontouchstart="touchStart(event, '4')" ontouchend="touchEnd(event, '4')">4</div></th><th><div id="touch23" class="touch" ontouchstart="touchStart(event, '5')" ontouchend="touchEnd(event, '5')">5</div></th><th><div id="touch24" class="touch" ontouchstart="touchStart(event, '6')" ontouchend="touchEnd(event, '6')">6</div></th><th><div id="touch25" class="touch" ontouchstart="touchStart(event, '7')" ontouchend="touchEnd(event, '7')">7</div></th><th><div id="touch26" class="touch" ontouchstart="touchStart(event, '8')" ontouchend="touchEnd(event, '8')">8</div></th><th><div id="touch26" class="touch" ontouchstart="touchStart(event, '9')" ontouchend="touchEnd(event, '9')">9</div></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><div id="touch14" class="touch" ontouchstart="touchStart(event, 'ArrowLeft')" ontouchend="touchEnd(event, 'ArrowLeft')">←</div></td><td></td><td><div id="touch17" class="touch" ontouchstart="touchStart(event, 'ArrowRight')" ontouchend="touchEnd(event, 'ArrowRight')">→</div></td><td><div id="touch1" class="touch" ontouchstart="touchStart(event, 'a')" ontouchend="touchEnd(event, 'a')">a</div></td><td><div id="touch2" class="touch" ontouchstart="touchStart(event, 'b')" ontouchend="touchEnd(event, 'b')">b</div></td><td><div id="touch3" class="touch" ontouchstart="touchStart(event, 'c')" ontouchend="touchEnd(event, 'c')">c</div></td><td><div id="touch4" class="touch" ontouchstart="touchStart(event, 'd')" ontouchend="touchEnd(event, 'd')">d</div></td><td><div id="touch5" class="touch" ontouchstart="touchStart(event, 'e')" ontouchend="touchEnd(event, 'e')">e</div></td><td><div id="touch6" class="touch" ontouchstart="touchStart(event, 'f')" ontouchend="touchEnd(event, 'f')">f</div></td><td><div id="touch7" class="touch" ontouchstart="touchStart(event, 'g')" ontouchend="touchEnd(event, 'g')">g</div></td><td><div id="touch8" class="touch" ontouchstart="touchStart(event, 'h')" ontouchend="touchEnd(event, 'h')">h</div></td><td><div id="touch9" class="touch" ontouchstart="touchStart(event, 'i')" ontouchend="touchEnd(event, 'i')">i</div></td><td><div id="touch10" class="touch" ontouchstart="touchStart(event, 'j')" ontouchend="touchEnd(event, 'j')">j</div></td><td><div id="touch11" class="touch" ontouchstart="touchStart(event, 'k')" ontouchend="touchEnd(event, 'k')">k</div></td><td><div id="touch12" class="touch" ontouchstart="touchStart(event, 'l')" ontouchend="touchEnd(event, 'l')">l</div></td><td><div id="touch13" class="touch" ontouchstart="touchStart(event, 'm')" ontouchend="touchEnd(event, 'm')">m</div></td></tr><tr><td></td><td><div id="touch16" class="touch" ontouchstart="touchStart(event, 'ArrowDown')" ontouchend="touchEnd(event, 'ArrowDown')">↓</div></td><td></td><td><div id="touch14" class="touch" ontouchstart="touchStart(event, 'n')" ontouchend="touchEnd(event, 'n')">n</div></td><td><div id="touch15" class="touch" ontouchstart="touchStart(event, 'o')" ontouchend="touchEnd(event, 'o')">o</div></td><td><div id="touch16" class="touch" ontouchstart="touchStart(event, 'p')" ontouchend="touchEnd(event, 'p')">p</div></td><td><div id="touch17" class="touch" ontouchstart="touchStart(event, 'q')" ontouchend="touchEnd(event, 'q')">q</div></td><td><div id="touch18" class="touch" ontouchstart="touchStart(event, 'r')" ontouchend="touchEnd(event, 'r')">r</div></td><td><div id="touch19" class="touch" ontouchstart="touchStart(event, 's')" ontouchend="touchEnd(event, 's')">s</div></td><td><div id="touch20" class="touch" ontouchstart="touchStart(event, 't')" ontouchend="touchEnd(event, 't')">t</div></td><td><div id="touch21" class="touch" ontouchstart="touchStart(event, 'u')" ontouchend="touchEnd(event, 'u')">u</div></td><td><div id="touch22" class="touch" ontouchstart="touchStart(event, 'v')" ontouchend="touchEnd(event, 'v')">v</div></td><td><div id="touch23" class="touch" ontouchstart="touchStart(event, 'w')" ontouchend="touchEnd(event, 'w')">w</div></td><td><div id="touch24" class="touch" ontouchstart="touchStart(event, 'x')" ontouchend="touchEnd(event, 'x')">x</div></td><td><div id="touch25" class="touch" ontouchstart="touchStart(event, 'y')" ontouchend="touchEnd(event, 'y')">y</div></td><td><div id="touch26" class="touch" ontouchstart="touchStart(event, 'z')" ontouchend="touchEnd(event, 'z')">z</div></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td colspan="7"><div id="touch17" class="touch" ontouchstart="touchStart(event, ' ')" ontouchend="touchEnd(event, ' ')" style="width:100%"></div></td><td></td><td></td><td></td><td></td></tr></tbody></table></div><script>var dragItem = document.querySelector("#item");
+    var container = document.querySelector("body");
+
+    var active = false;
+    var currentX;
+    var currentY;
+    var initialX;
+    var initialY;
+    var xOffset = 0;
+    var yOffset = 0;
+
+    container.addEventListener("touchstart", dragStart, false);
+    container.addEventListener("touchend", dragEnd, false);
+    container.addEventListener("touchmove", drag, false);
+
+    container.addEventListener("mousedown", dragStart, false);
+    container.addEventListener("mouseup", dragEnd, false);
+    container.addEventListener("mousemove", drag, false);
+
+    function dragStart(e) {
+      if (e.type === "touchstart") {
+        initialX = e.touches[0].clientX - xOffset;
+        initialY = e.touches[0].clientY - yOffset;
+      } else {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+      }
+
+      if (e.target === dragItem) {
+        active = true;
+      }
+    }
+
+    function dragEnd(e) {
+      initialX = currentX;
+      initialY = currentY;
+
+      active = false;
+    }
+
+    function drag(e) {
+      if (active) {
+
+        e.preventDefault();
+
+        if (e.type === "touchmove") {
+          currentX = e.touches[0].clientX - initialX;
+          currentY = e.touches[0].clientY - initialY;
+        } else {
+          currentX = e.clientX - initialX;
+          currentY = e.clientY - initialY;
+        }
+
+        xOffset = currentX;
+        yOffset = currentY;
+
+        setTranslate(currentX, currentY, dragItem);
+      }
+    }
+
+    function setTranslate(xPos, yPos, el) {
+      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+    }
+
+let activeTouches = {};
+    const repeatDelay = 500;
+    const repeatRate = 50;
+
+function touchStart(event, key) {
+    event.preventDefault();
+    for (let touch of event.changedTouches) {
+        let touchElement = document.elementFromPoint(touch.clientX, touch.clientY);
+        if (touchElement && touchElement.classList.contains('touch')) {
+            touchElement.classList.add('active');
+            activeTouches[touch.identifier] = { key: key, interval: null, element: touchElement };
+            sendkey(key);
+            activeTouches[touch.identifier].interval = setTimeout(function repeat() {
+                sendkey(key);
+                activeTouches[touch.identifier].interval = setTimeout(repeat, repeatRate);
+            }, repeatDelay);
+        }
+    }
+}
+
+function touchEnd(event) {
+    for (let touch of event.changedTouches) {
+        if (activeTouches[touch.identifier]) {
+            clearTimeout(activeTouches[touch.identifier].interval);
+            delkey(activeTouches[touch.identifier].key);
+            activeTouches[touch.identifier].element.classList.remove('active');
+            delete activeTouches[touch.identifier];
+        }
+    }
+}
+
+    function sendkey(key) {
+        document.dispatchEvent(new KeyboardEvent('keydown', { 'key': key }));
+    }
+
+    function delkey(key) {
+        document.dispatchEvent(new KeyboardEvent('keyup', { 'key': key }));
+    }</script></body></html>

@@ -261,7 +261,7 @@ public class WebViewController: UIViewController {
 extension WebViewController {
     
     public func load(url: URL) {
-        let url = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "build")!
+        let url = Bundle.main.url(forResource: "editor", withExtension: "html", subdirectory: "build")!
         webView.loadFileURL(url, allowingReadAccessTo: url.deletingLastPathComponent())
         NotificationCenter.default.addObserver(forName: Notification.Name("LoadSBFile"), object: nil, queue: .main) { notification in
                     if let url = notification.object as? URL {

@@ -1,169 +1,188 @@
-<!doctype html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="google" value="notranslate"><link rel="shortcut icon" href="static/favicon.ico"><title>CodePM</title><style>#item {
-        width: 935px;
-        height: 300px;
-        background-color: rgba(39, 66, 105, 0.1);
-        border: 3px solid rgba(136, 136, 136, .5);
-        touch-action: none;
-        user-select: none;
-        padding-top: 60px;
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google" value="notranslate">
+    <meta name="description" content="TurboWarp is a Scratch mod with a compiler to run projects faster, dark mode for your eyes, a bunch of addons to improve the editor, and more." />
+    <title>TurboWarp - Run Scratch projects faster</title>
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+      <link rel="manifest" href="manifest.webmanifest">
+    
+    <style>
+      .splash-screen {
         position: absolute;
-        z-index: 100000;
-        display: none;
-        bottom: 20px;
-        -webkit-backdrop-filter: blur(5px);
-        left: calc((100vw - 935px)/2);
-        border-radius: 20px;
-        box-shadow: 6px 7px 10px #163680;
-        opacity:20%;
-    }
-         html {
-             -webkit-user-select: none;
-             -webkit-touch-callout: none;
-         }
-  .touch{
-        width: 50px;
-        height: 50px;
-        margin: 2px;
-        background-color: rgba(76, 151, 255);
-        border-radius: 10px;
-        font-size: 40px;
-        font-family: arial;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
         text-align: center;
-        float: left;
-        font-weight: 100;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      .splash-screen[hidden] {
+        display: none;
+      }
+      .splash-screen[data-theme="dark"] {
+        background-color: #333;
         color: white;
-        box-shadow: 3px 3px 1px #111111;
-
-  }
-
-    .touch.active{
-        background-color: rgba(0, 0, 0, 0.8);
-        color:white;
-        box-shadow: none;
-         }
-
-
-
-
-    #item:hover {
-      cursor: pointer;
-      background-color: rgba(39, 66, 105, 0.5);
-      opacity:100%;
-    }
-         .close{
-
-             width: 50px;
-             height: 50px;
-             margin: 2px;
-             background-color: rgb(255, 0, 0);
-             border-radius: 50%;
-             font-size: 40px;
-             font-family: helvetica;
-             text-align: center;
-             font-weight: 500;
-             color: white;
-             right: 10px;
-             position: absolute;
-             top: 2px;
-         }</style><script defer="defer" src="runtime.js"></script><script defer="defer" src="chunks/151.b5e97b70eabb2ad94393.js"></script><script defer="defer" src="chunks/63.c92b8c8fdc6e80ccc90b.js"></script><script defer="defer" src="chunks/217.5a1955ce9a5181e3de28.js"></script><script defer="defer" src="gui.js"></script></head><body><div id="item"><div class="close" onclick="document.getElementById('item').style.display='none';">x</div><table style="background-color: rgba(255,255,255,0.7);border-radius: 10px;"><thead><tr><th></th><th><div id="touch15" class="touch" ontouchstart="touchStart(event, 'ArrowUp')" ontouchend="touchEnd(event, 'ArrowUp')">↑</div></th><th></th><th><div id="touch18" class="touch" ontouchstart="touchStart(event, '0')" ontouchend="touchEnd(event, '0')">0</div></th><th><div id="touch19" class="touch" ontouchstart="touchStart(event, '1')" ontouchend="touchEnd(event, '1')">1</div></th><th><div id="touch20" class="touch" ontouchstart="touchStart(event, '2')" ontouchend="touchEnd(event, '2')">2</div></th><th><div id="touch21" class="touch" ontouchstart="touchStart(event, '3')" ontouchend="touchEnd(event, '3')">3</div></th><th><div id="touch22" class="touch" ontouchstart="touchStart(event, '4')" ontouchend="touchEnd(event, '4')">4</div></th><th><div id="touch23" class="touch" ontouchstart="touchStart(event, '5')" ontouchend="touchEnd(event, '5')">5</div></th><th><div id="touch24" class="touch" ontouchstart="touchStart(event, '6')" ontouchend="touchEnd(event, '6')">6</div></th><th><div id="touch25" class="touch" ontouchstart="touchStart(event, '7')" ontouchend="touchEnd(event, '7')">7</div></th><th><div id="touch26" class="touch" ontouchstart="touchStart(event, '8')" ontouchend="touchEnd(event, '8')">8</div></th><th><div id="touch26" class="touch" ontouchstart="touchStart(event, '9')" ontouchend="touchEnd(event, '9')">9</div></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><div id="touch14" class="touch" ontouchstart="touchStart(event, 'ArrowLeft')" ontouchend="touchEnd(event, 'ArrowLeft')">←</div></td><td></td><td><div id="touch17" class="touch" ontouchstart="touchStart(event, 'ArrowRight')" ontouchend="touchEnd(event, 'ArrowRight')">→</div></td><td><div id="touch1" class="touch" ontouchstart="touchStart(event, 'a')" ontouchend="touchEnd(event, 'a')">a</div></td><td><div id="touch2" class="touch" ontouchstart="touchStart(event, 'b')" ontouchend="touchEnd(event, 'b')">b</div></td><td><div id="touch3" class="touch" ontouchstart="touchStart(event, 'c')" ontouchend="touchEnd(event, 'c')">c</div></td><td><div id="touch4" class="touch" ontouchstart="touchStart(event, 'd')" ontouchend="touchEnd(event, 'd')">d</div></td><td><div id="touch5" class="touch" ontouchstart="touchStart(event, 'e')" ontouchend="touchEnd(event, 'e')">e</div></td><td><div id="touch6" class="touch" ontouchstart="touchStart(event, 'f')" ontouchend="touchEnd(event, 'f')">f</div></td><td><div id="touch7" class="touch" ontouchstart="touchStart(event, 'g')" ontouchend="touchEnd(event, 'g')">g</div></td><td><div id="touch8" class="touch" ontouchstart="touchStart(event, 'h')" ontouchend="touchEnd(event, 'h')">h</div></td><td><div id="touch9" class="touch" ontouchstart="touchStart(event, 'i')" ontouchend="touchEnd(event, 'i')">i</div></td><td><div id="touch10" class="touch" ontouchstart="touchStart(event, 'j')" ontouchend="touchEnd(event, 'j')">j</div></td><td><div id="touch11" class="touch" ontouchstart="touchStart(event, 'k')" ontouchend="touchEnd(event, 'k')">k</div></td><td><div id="touch12" class="touch" ontouchstart="touchStart(event, 'l')" ontouchend="touchEnd(event, 'l')">l</div></td><td><div id="touch13" class="touch" ontouchstart="touchStart(event, 'm')" ontouchend="touchEnd(event, 'm')">m</div></td></tr><tr><td></td><td><div id="touch16" class="touch" ontouchstart="touchStart(event, 'ArrowDown')" ontouchend="touchEnd(event, 'ArrowDown')">↓</div></td><td></td><td><div id="touch14" class="touch" ontouchstart="touchStart(event, 'n')" ontouchend="touchEnd(event, 'n')">n</div></td><td><div id="touch15" class="touch" ontouchstart="touchStart(event, 'o')" ontouchend="touchEnd(event, 'o')">o</div></td><td><div id="touch16" class="touch" ontouchstart="touchStart(event, 'p')" ontouchend="touchEnd(event, 'p')">p</div></td><td><div id="touch17" class="touch" ontouchstart="touchStart(event, 'q')" ontouchend="touchEnd(event, 'q')">q</div></td><td><div id="touch18" class="touch" ontouchstart="touchStart(event, 'r')" ontouchend="touchEnd(event, 'r')">r</div></td><td><div id="touch19" class="touch" ontouchstart="touchStart(event, 's')" ontouchend="touchEnd(event, 's')">s</div></td><td><div id="touch20" class="touch" ontouchstart="touchStart(event, 't')" ontouchend="touchEnd(event, 't')">t</div></td><td><div id="touch21" class="touch" ontouchstart="touchStart(event, 'u')" ontouchend="touchEnd(event, 'u')">u</div></td><td><div id="touch22" class="touch" ontouchstart="touchStart(event, 'v')" ontouchend="touchEnd(event, 'v')">v</div></td><td><div id="touch23" class="touch" ontouchstart="touchStart(event, 'w')" ontouchend="touchEnd(event, 'w')">w</div></td><td><div id="touch24" class="touch" ontouchstart="touchStart(event, 'x')" ontouchend="touchEnd(event, 'x')">x</div></td><td><div id="touch25" class="touch" ontouchstart="touchStart(event, 'y')" ontouchend="touchEnd(event, 'y')">y</div></td><td><div id="touch26" class="touch" ontouchstart="touchStart(event, 'z')" ontouchend="touchEnd(event, 'z')">z</div></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td colspan="7"><div id="touch17" class="touch" ontouchstart="touchStart(event, ' ')" ontouchend="touchEnd(event, ' ')" style="width:100%"></div></td><td></td><td></td><td></td><td></td></tr></tbody></table></div><script>var dragItem = document.querySelector("#item");
-    var container = document.querySelector("body");
-
-    var active = false;
-    var currentX;
-    var currentY;
-    var initialX;
-    var initialY;
-    var xOffset = 0;
-    var yOffset = 0;
-
-    container.addEventListener("touchstart", dragStart, false);
-    container.addEventListener("touchend", dragEnd, false);
-    container.addEventListener("touchmove", drag, false);
-
-    container.addEventListener("mousedown", dragStart, false);
-    container.addEventListener("mouseup", dragEnd, false);
-    container.addEventListener("mousemove", drag, false);
-
-    function dragStart(e) {
-      if (e.type === "touchstart") {
-        initialX = e.touches[0].clientX - xOffset;
-        initialY = e.touches[0].clientY - yOffset;
-      } else {
-        initialX = e.clientX - xOffset;
-        initialY = e.clientY - yOffset;
       }
-
-      if (e.target === dragItem) {
-        active = true;
+      .splash-screen > * {
+        max-width: 80%;
       }
-    }
+      .splash-spinner:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        border: 6px solid;
+        border-color: currentColor transparent currentColor transparent;
+        animation: splash-spinner 1.2s linear infinite;
+      }
+      @keyframes splash-spinner {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .splash-error-title {
+        font-weight: bold;
+      }
+      .splash-error-title a {
+        color: inherit;
+      }
+      .splash-errors {
+        font-family: monospace;
+      }
+      .splash-error-list {
+        white-space: pre-wrap;
+      }
+      .splash-reset {
+        color: inherit;
+        background: none;
+        padding: 0;
+        margin: 0;
+        border: none;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .splash-reset:disabled {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div class="splash-screen">
+        <div>
+          <h1>TurboWarp requires JavaScript</h1>
+          <p>Consider using <a href="https://desktop.turbowarp.org/">TurboWarp Desktop</a> if you are afraid of remote JavaScript.</p>
+        </div>
+      </div>
+    </noscript>
 
-    function dragEnd(e) {
-      initialX = currentX;
-      initialY = currentY;
+    <div class="splash-screen spash-waiting-for-js" hidden>
+      <div class="splash-spinner"></div>
 
-      active = false;
-    }
+      <div class="splash-error-title" hidden>Something went wrong. <a href="https://scratch.mit.edu/users/GarboMuffin/#comments" target="_blank" rel="noreferrer">Please report</a> with the information below.</div>
+      <div class="splash-errors" hidden></div>
+      <button class="splash-reset" hidden>Click here to reset caches (can fix some errors)</button>
+    </div>
 
-    function drag(e) {
-      if (active) {
+    <script>
+      (function () {
+        'use strict';
 
-        e.preventDefault();
+        var theme = '';
+        var accent = '#ff4c4c';
 
-        if (e.type === "touchmove") {
-          currentX = e.touches[0].clientX - initialX;
-          currentY = e.touches[0].clientY - initialY;
-        } else {
-          currentX = e.clientX - initialX;
-          currentY = e.clientY - initialY;
+        try {
+          var themeSetting = localStorage.getItem('tw:theme');
+        } catch (e) {
+          // ignore
+        }
+        if (themeSetting === 'light') {
+          theme = 'light';
+        } else if (themeSetting === 'dark') {
+          theme = 'dark';
+        } else if (themeSetting) {
+          try {
+            var parsed = JSON.parse(themeSetting);
+            if (parsed.accent === 'purple') {
+              accent = '#855cd6';
+            } else if (parsed.accent === 'blue') {
+              accent = '#4c97ff';
+            }
+            if (parsed.gui === 'dark' || parsed.gui === 'light') {
+              theme = parsed.gui;
+            }
+          } catch (e) {
+            // ignore
+          }
         }
 
-        xOffset = currentX;
-        yOffset = currentY;
-
-        setTranslate(currentX, currentY, dragItem);
-      }
-    }
-
-    function setTranslate(xPos, yPos, el) {
-      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-    }
-
-let activeTouches = {};
-    const repeatDelay = 500;
-    const repeatRate = 50;
-
-function touchStart(event, key) {
-    event.preventDefault();
-    for (let touch of event.changedTouches) {
-        let touchElement = document.elementFromPoint(touch.clientX, touch.clientY);
-        if (touchElement && touchElement.classList.contains('touch')) {
-            touchElement.classList.add('active');
-            activeTouches[touch.identifier] = { key: key, interval: null, element: touchElement };
-            sendkey(key);
-            activeTouches[touch.identifier].interval = setTimeout(function repeat() {
-                sendkey(key);
-                activeTouches[touch.identifier].interval = setTimeout(repeat, repeatRate);
-            }, repeatDelay);
+        if (!theme) {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         }
-    }
-}
 
-function touchEnd(event) {
-    for (let touch of event.changedTouches) {
-        if (activeTouches[touch.identifier]) {
-            clearTimeout(activeTouches[touch.identifier].interval);
-            delkey(activeTouches[touch.identifier].key);
-            activeTouches[touch.identifier].element.classList.remove('active');
-            delete activeTouches[touch.identifier];
+        var splash = document.querySelector('.spash-waiting-for-js');
+        splash.setAttribute('data-theme', theme);
+        if (theme !== 'dark') {
+          
+            splash.style.color = accent;
+          
         }
-    }
-}
+        splash.hidden = false;
 
-    function sendkey(key) {
-        document.dispatchEvent(new KeyboardEvent('keydown', { 'key': key }));
-    }
+        var splashErrorTitle = document.querySelector('.splash-error-title');
+        var splashError = document.querySelector('.splash-errors');
+        var splashReset = document.querySelector('.splash-reset');
 
-    function delkey(key) {
-        document.dispatchEvent(new KeyboardEvent('keyup', { 'key': key }));
-    }</script></body></html>
+        var totalErrors = 0;
+        window.onerror = function (event, source, line, col, err) {
+          if (++totalErrors > 5) return; // dont bother logging more
+          splashErrorTitle.hidden = splashError.hidden = splashReset.hidden = false;
+          var el = document.createElement('div');
+          el.textContent = 'Error (splash) in ' + source + ' (' + line + ':' + col + '): ' + err;
+          splashError.appendChild(el);
+        };
+
+        splashReset.onclick = function () {
+          splashReset.disabled = true;
+          function hardRefresh() {
+            var search = location.search.replace(/[?&]nocache=[\d.]+(?=$|&)/, '');
+            // This is a functional cookie used so that we respond with Clear-Site-Data just once. No tracking.
+            // Can't use nocache parameter to trigger this because people might accidentally bookmark that, and
+            // then we would be clearing their cache on every visit.
+            document.cookie = 'tw_clear_cache_once=1; max-age=60; path=/; samesite=strict; secure';
+            location.replace(location.pathname + search + (search ? '&' : '?') + 'nocache=' + Math.floor(Math.random() * 10000000));
+          }
+          if ('serviceWorker' in navigator) {
+            setTimeout(hardRefresh, 5000);
+            navigator.serviceWorker.getRegistration("")
+              .then(function(registration) {
+                if (registration) {
+                  return registration.unregister();
+                }
+              })
+              .then(hardRefresh)
+              .catch(hardRefresh);
+          } else {
+            hardRefresh();
+          }
+        };
+
+        window.SplashEnd = () => {
+          splash.hidden = true;
+          window.onerror = null;
+        };
+      })();
+    </script>
+
+    <div id="app"></div>
+  <script src="js/vendors~addon-settings~credits~editor~embed~fullscreen~player.js"></script><script src="js/vendors~editor~embed~fullscreen~player.js"></script><script src="js/addon-settings~addons~editor~fullscreen~player.js"></script><script src="js/addon-settings~editor~embed~fullscreen~player.js"></script><script src="js/player.js"></script></body>
+</html>
