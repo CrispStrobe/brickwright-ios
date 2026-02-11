@@ -11,6 +11,7 @@
 		4B443AA72C1398D600AECAAB /* ressources in Resources */ = {isa = PBXBuildFile; fileRef = 4B443AA62C1398D600AECAAB /* ressources */; };
 		4BCBEAD12CA0A87500FE5C1A /* ScratchWebKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4BCBEAD02CA0A87500FE5C1A /* ScratchWebKit */; };
 		4BD3F5AB2CA0B16A006C4918 /* libswift_Concurrency.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BC6B8F02764D5910099FEE6 /* libswift_Concurrency.tbd */; };
+		9351D18B2F3C6AB200FF94AE /* ScratchWebKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4BCBEAD32CA0A8C900FE5C1A /* ScratchWebKit */; };
 		CB1980C5265CEBF900FC9D3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CB1980C3265CEBF900FC9D3D /* InfoPlist.strings */; };
 		CB3EE8D4266082D100005ECC /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3EE8D3266082D100005ECC /* AlertController.swift */; };
 		CB3FBCF92605D98C008FE5C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB3FBCF82605D98C008FE5C2 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9351D18B2F3C6AB200FF94AE /* ScratchWebKit in Frameworks */,
 				4BCBEAD12CA0A87500FE5C1A /* ScratchWebKit in Frameworks */,
 				4BD3F5AB2CA0B16A006C4918 /* libswift_Concurrency.tbd in Frameworks */,
 			);
@@ -358,11 +360,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3DYUWFP9E5;
+				DEVELOPMENT_TEAM = N9XSJ4M3GT;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				INFOPLIST_FILE = CodePM/Debug/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CodePM;
+				INFOPLIST_KEY_CFBundleDisplayName = TurboWarp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -374,7 +376,7 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pm.scratch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crispstrobe.scratch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -391,11 +393,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 3DYUWFP9E5;
+				DEVELOPMENT_TEAM = N9XSJ4M3GT;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
 				INFOPLIST_FILE = CodePM/Release/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CodePM;
+				INFOPLIST_KEY_CFBundleDisplayName = TurboWarp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -407,7 +409,7 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = com.pm.scratch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crispstrobe.scratch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
