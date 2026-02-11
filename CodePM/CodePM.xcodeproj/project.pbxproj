@@ -41,7 +41,7 @@
 		4BC6B8F02764D5910099FEE6 /* libswift_Concurrency.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswift_Concurrency.tbd; path = usr/lib/swift/libswift_Concurrency.tbd; sourceTree = SDKROOT; };
 		CB1980C4265CEBF900FC9D3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CB3EE8D3266082D100005ECC /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
-		CB3FBCEC2605D98B008FE5C2 /* CodePM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodePM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB3FBCEC2605D98B008FE5C2 /* TurboWarp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TurboWarp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3FBCF82605D98C008FE5C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB4D9409265772BA007C59AB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CB6F7A3C2616E44E007C2230 /* ScratchWebKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ScratchWebKit; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		CB3FBCED2605D98B008FE5C2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CB3FBCEC2605D98B008FE5C2 /* CodePM.app */,
+				CB3FBCEC2605D98B008FE5C2 /* TurboWarp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,7 +148,7 @@
 				4BCBEAD32CA0A8C900FE5C1A /* ScratchWebKit */,
 			);
 			productName = ScratchPM;
-			productReference = CB3FBCEC2605D98B008FE5C2 /* CodePM.app */;
+			productReference = CB3FBCEC2605D98B008FE5C2 /* TurboWarp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -376,8 +376,8 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = com.crispstrobe.scratch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crispstrobe.turbowarp;
+				PRODUCT_NAME = TurboWarp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -409,8 +409,8 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = com.crispstrobe.scratch;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crispstrobe.turbowarp;
+				PRODUCT_NAME = TurboWarp;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 2;
 				TVOS_DEPLOYMENT_TARGET = 14.5;

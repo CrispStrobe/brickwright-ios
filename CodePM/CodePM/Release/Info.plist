@@ -4,29 +4,31 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>fr_FR</string>
+	<key>CFBundleDisplayName</key>
+	<string>TurboWarp</string>
 	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>Scratch Project SB2</string>
-			<key>LSHandlerRank</key>
-			<string>Owner</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>com.scratch.pm.sb2</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>Scratch Project SB3</string>
-			<key>LSHandlerRank</key>
-			<string>Owner</string>
-			<key>LSItemContentTypes</key>
-			<array>
-				<string>com.scratch.pm.sb3</string>
-			</array>
-		</dict>
-	</array>
+    <array>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>Scratch 2 Project</string>
+            <key>LSHandlerRank</key>
+            <string>Owner</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>org.turbowarp.sb2</string>
+            </array>
+        </dict>
+        <dict>
+            <key>CFBundleTypeName</key>
+            <string>Scratch 3 Project</string>
+            <key>LSHandlerRank</key>
+            <string>Owner</string>
+            <key>LSItemContentTypes</key>
+            <array>
+                <string>org.turbowarp.sb3</string>
+            </array>
+        </dict>
+    </array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -43,10 +45,11 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>com.pm.scratch</string>
+			<string>org.turbowarp.app</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.pm.scratch</string>
+				<string>com.crispstrobe.turbowarp</string>
+				<string>turbowarp</string>
 			</array>
 		</dict>
 	</array>
@@ -87,13 +90,13 @@
 		</dict>
 	</dict>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>App uses Bluetooth to communicate with external devices.</string>
+	<string>TurboWarp uses Bluetooth to connect to devices like Lego SPIKE, EV3, and WeDo robots.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>App uses Bluetooth to communicate with external devices.</string>
+	<string>TurboWarp uses Bluetooth to connect to devices like Lego SPIKE, EV3, and WeDo robots.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>App uses the camera to get images.</string>
+	<string>TurboWarp uses the camera e.g. for video sensing extensions.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>App uses the microphone to get sounds.</string>
+	<string>TurboWarp uses the microphone for recording sounds and loudness sensing.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>App uses Speech Recognition to recognize your voice.</string>
 	<key>UIApplicationSceneManifest</key>
@@ -102,6 +105,8 @@
 		<true/>
 	</dict>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
+	<key>UIFileSharingEnabled</key>
 	<true/>
 	<key>UILaunchScreen</key>
 	<dict>
@@ -120,6 +125,10 @@
 	<true/>
 	<key>UIStatusBarHidden~ipad</key>
 	<true/>
+	<key>UISupportedExternalAccessoryProtocols</key>
+	<array>
+		<string>com.lego.les</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeRight</string>
@@ -133,51 +142,57 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UTExportedTypeDeclarations</key>
-	<array>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>public.data</string>
-				<string>public.content</string>
-			</array>
-			<key>UTTypeDescription</key>
-			<string>Scratch Project SB2</string>
-			<key>UTTypeIdentifier</key>
-			<string>com.scratch.pm.sb2</string>
-			<key>UTTypeTagSpecification</key>
-			<dict>
-				<key>public.filename-extension</key>
-				<array>
-					<string>sb2</string>
-				</array>
-				<key>public.mime-type</key>
-				<array>
-					<string>application/x-scratch-sb2</string>
-				</array>
-			</dict>
-		</dict>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>public.data</string>
-				<string>public.content</string>
-			</array>
-			<key>UTTypeDescription</key>
-			<string>Scratch Project SB3</string>
-			<key>UTTypeIdentifier</key>
-			<string>com.scratch.pm.sb3</string>
-			<key>UTTypeTagSpecification</key>
-			<dict>
-				<key>public.filename-extension</key>
-				<array>
-					<string>sb3</string>
-				</array>
-				<key>public.mime-type</key>
-				<array>
-					<string>application/x-scratch-sb3</string>
-				</array>
-			</dict>
-		</dict>
-	</array>
+    <array>
+        <dict>
+            <key>UTTypeConformsTo</key>
+            <array>
+                <string>public.data</string>
+                <string>public.content</string>
+                <string>com.pkware.zip-archive</string>
+            </array>
+            <key>UTTypeDescription</key>
+            <string>Scratch 2 Project</string>
+            <key>UTTypeIconFiles</key>
+            <array/>
+            <key>UTTypeIdentifier</key>
+            <string>org.turbowarp.sb2</string>
+            <key>UTTypeTagSpecification</key>
+            <dict>
+                <key>public.filename-extension</key>
+                <array>
+                    <string>sb2</string>
+                </array>
+                <key>public.mime-type</key>
+                <array>
+                    <string>application/x-scratch-sb2</string>
+                </array>
+            </dict>
+        </dict>
+        <dict>
+            <key>UTTypeConformsTo</key>
+            <array>
+                <string>public.data</string>
+                <string>public.content</string>
+                <string>com.pkware.zip-archive</string>
+            </array>
+            <key>UTTypeDescription</key>
+            <string>Scratch 3 Project</string>
+            <key>UTTypeIconFiles</key>
+            <array/>
+            <key>UTTypeIdentifier</key>
+            <string>org.turbowarp.sb3</string>
+            <key>UTTypeTagSpecification</key>
+            <dict>
+                <key>public.filename-extension</key>
+                <array>
+                    <string>sb3</string>
+                </array>
+                <key>public.mime-type</key>
+                <array>
+                    <string>application/x-scratch-sb3</string>
+                </array>
+            </dict>
+        </dict>
+    </array>
 </dict>
 </plist>
