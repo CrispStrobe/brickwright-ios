@@ -1,23 +1,43 @@
-# TurboWarp iOS (with LEGO® Support)
+# turbowarp-ios (LEGO build)
 
-**A specialized build of [TurboWarp](https://turbowarp.org/) optimized for iPad, including native Bluetooth bridges for LEGO hardware.**
+A WKWebView-based iOS / iPadOS app that wraps a pre-built [TurboWarp /
+`scratch-gui`](https://github.com/CrispStrobe/scratch-gui) editor and
+intercepts Scratch Link WebSocket calls into native Swift Bluetooth — so
+extensions written for ScratchLink desktop work directly on iPad.
 
-This project includes work-in-progress extensions for:
-* **LEGO® SPIKE™ Prime / Robot Inventor** (via Native BLE)
-* **LEGO® MINDSTORMS® EV3** (via Native Bluetooth Classic)
-* **LEGO® NXT** (via Scratch Link Emulation)
-* **Standard TurboWarp Features:** 60 FPS, Compiler, Dark Mode, Custom Extensions.
+Work-in-progress hardware support:
 
----
+- **LEGO® SPIKE™ Prime / Robot Inventor** — native BLE
+- **LEGO® MINDSTORMS® EV3** — native Bluetooth Classic (ExternalAccessory)
+- **LEGO® NXT** — Scratch Link emulation
+- **TurboWarp features:** 60 FPS, compiler, dark mode, custom extensions
 
-## ⚠️ Disclaimer
+> **iOS Bluetooth caveat:** `navigator.bluetooth` and `navigator.serial`
+> don't exist on iOS. The native Scratch-Link emulation in this app is the
+> only path to LEGO hardware. Extensions written for Web BT / Web Serial
+> won't work — use the ScratchLink-mode variants instead.
 
-This project is a community-created modification. It is based on:
-* **[CodePM](https://forge.apps.education.fr/codepm/app):** For the iOS native container and Bluetooth bridges.
-* **[TurboWarp](https://github.com/TurboWarp):** For the high-performance Scratch compiler and interface.
-* **[Scratch](https://github.com/LLK/scratch-gui):** The block-based coding language.
+## Related repos
 
-LEGO® is a trademark of the LEGO Group. The LEGO Group does not sponsor, authorize, or endorse this software.
+| Repo | Role |
+|------|------|
+| **`turbowarp-ios` (this)** | iOS WKWebView shell + native BLE/BTC Scratch-Link emulation. |
+| [`CrispStrobe/scratch-gui`](https://github.com/CrispStrobe/scratch-gui) | The editor UI bundled into the app. |
+| [`CrispStrobe/extensions`](https://github.com/CrispStrobe/extensions) | Extensions consumed by the editor. |
+| [`CrispStrobe/turbowarp-android`](https://github.com/CrispStrobe/turbowarp-android) | Android counterpart. |
+| [`CrispStrobe/turbowarp-desktop`](https://github.com/CrispStrobe/turbowarp-desktop) | Electron desktop counterpart. |
+| [`CrispStrobe/turbowarp-lego`](https://github.com/CrispStrobe/turbowarp-lego) | Working sandbox + Python bridges (for desktop bridge-mode). |
+
+## Disclaimer
+
+Community-created modification built on:
+
+- [CodePM](https://forge.apps.education.fr/codepm/app) — the iOS native container and Bluetooth bridges.
+- [TurboWarp](https://github.com/TurboWarp) — the Scratch compiler and editor.
+- [Scratch](https://github.com/LLK/scratch-gui) — the block-based language.
+
+LEGO® is a trademark of the LEGO Group. The LEGO Group does not sponsor,
+authorize, or endorse this software.
 
 ---
 
