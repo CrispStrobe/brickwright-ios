@@ -1,0 +1,81 @@
+name: Build .ipa (Manual)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: iOS (.ipa)
+    runs-on: macos-latest
+    steps:
+      - name: Checkout turbowarp-ios
+        uses: actions/checkout@v4
+        with:
+          path: turbowarp-ios
+
+      - name: Checkout sibling scratch-gui (the editor that gets bundled)
+        uses: actions/checkout@v4
+        with:
+          repository: CrispStrobe/scratch-gui
+          ref: develop
+          path: scratch-gui
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install scratch-gui deps
+        working-directory: scratch-gui
+        run: |
+          npm install --ignore-scripts --no-audit --no-fund
+          # micro:bit firmware download skipped by --ignore-scripts; stub the
+          # generated file so webpack can resolve the import.
+          mkdir -p src/generated
+          printf "module.exports = '';\n" > src/generated/microbit-hex-url.cjs
+
+      - name: Build scratch-gui (CI=true to suppress webpack progress flood)
+        working-directory: scratch-gui
+        env:
+          NODE_ENV: production
+          CI: "true"
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: ./node_modules/.bin/webpack --bail
+
+      - name: Brain transplant — replace CodePM web app with scratch-gui build
+        run: |
+          rm -rf turbowarp-ios/build
+          mkdir -p turbowarp-ios/build
+          cp -R scratch-gui/build/. turbowarp-ios/build/
+          ls turbowarp-ios/build/editor.html turbowarp-ios/build/index.html
+
+      - name: Build CodePM .xcarchive (unsigned)
+        working-directory: turbowarp-ios
+        run: |
+          xcodebuild \
+            -project CodePM/CodePM.xcodeproj \
+            -scheme CodePM \
+            -configuration Release \
+            -sdk iphoneos \
+            -archivePath "$PWD/build-out/CodePM.xcarchive" \
+            archive \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM=""
+
+      - name: Wrap .xcarchive into unsigned .ipa
+        working-directory: turbowarp-ios
+        run: |
+          APP_PATH="build-out/CodePM.xcarchive/Products/Applications"
+          APP_NAME=$(ls "$APP_PATH" | head -1)
+          mkdir -p Payload
+          cp -R "$APP_PATH/$APP_NAME" Payload/
+          zip -qr TurboWarp-unsigned.ipa Payload
+          ls -lh TurboWarp-unsigned.ipa
+
+      - name: Upload .ipa artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: turbowarp-ios-ipa
+          path: turbowarp-ios/TurboWarp-unsigned.ipa
