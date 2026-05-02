@@ -1,0 +1,86 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+      - '[0-9]*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: iOS (.ipa)
+    runs-on: macos-latest
+    steps:
+      - name: Checkout turbowarp-ios
+        uses: actions/checkout@v4
+        with:
+          path: turbowarp-ios
+
+      - name: Checkout sibling scratch-gui
+        uses: actions/checkout@v4
+        with:
+          repository: CrispStrobe/scratch-gui
+          ref: develop
+          path: scratch-gui
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install scratch-gui deps
+        working-directory: scratch-gui
+        run: |
+          npm install --ignore-scripts --no-audit --no-fund
+          mkdir -p src/generated
+          printf "module.exports = '';\n" > src/generated/microbit-hex-url.cjs
+
+      - name: Build scratch-gui
+        working-directory: scratch-gui
+        env:
+          NODE_ENV: production
+          CI: "true"
+          NODE_OPTIONS: --max-old-space-size=8192
+        run: ./node_modules/.bin/webpack --bail
+
+      - name: Brain transplant — replace CodePM web app with scratch-gui build
+        run: |
+          rm -rf turbowarp-ios/build
+          mkdir -p turbowarp-ios/build
+          cp -R scratch-gui/build/. turbowarp-ios/build/
+
+      - name: Build CodePM .xcarchive (unsigned)
+        working-directory: turbowarp-ios
+        run: |
+          xcodebuild \
+            -project CodePM/CodePM.xcodeproj \
+            -scheme CodePM \
+            -configuration Release \
+            -sdk iphoneos \
+            -archivePath "$PWD/build-out/CodePM.xcarchive" \
+            archive \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM=""
+
+      - name: Wrap .xcarchive into versioned unsigned .ipa
+        working-directory: turbowarp-ios
+        run: |
+          APP_PATH="build-out/CodePM.xcarchive/Products/Applications"
+          APP_NAME=$(ls "$APP_PATH" | head -1)
+          mkdir -p Payload
+          cp -R "$APP_PATH/$APP_NAME" Payload/
+          zip -qr "TurboWarp-${{ github.ref_name }}-unsigned.ipa" Payload
+          ls -lh "TurboWarp-${{ github.ref_name }}-unsigned.ipa"
+
+      - name: Attach .ipa to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: turbowarp-ios/TurboWarp-${{ github.ref_name }}-unsigned.ipa
+          draft: false
+          prerelease: true
+          generate_release_notes: true
