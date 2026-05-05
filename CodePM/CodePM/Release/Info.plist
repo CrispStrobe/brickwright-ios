@@ -63,8 +63,30 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
+		<!--
+		ATS exceptions for the App Store. Notes:
+		  • NSAllowsArbitraryLoads is intentionally NOT set: it triggers
+		    App Review scrutiny ("justify why you disable ATS globally")
+		    and can lead to rejection. The combination below covers our
+		    real needs without that.
+		  • NSAllowsArbitraryLoadsInWebContent: required so WKWebView
+		    can load arbitrary remote pages (e.g. scratch-gui hosted on
+		    Vercel). ATS doesn't apply to WKWebView content beyond the
+		    initial page load anyway, but Apple wants the explicit opt-in.
+		  • NSAllowsLocalNetworking (iOS 10+): allows TLS-or-HTTP traffic
+		    to RFC 1918 ranges (192.168.*.*, 10.*, 172.16-31.*) and
+		    .local mDNS — exactly what the LEGO bricks need (EV3 bridge
+		    on 192.168.x.y, etc.).  This is the App-Store-friendly
+		    alternative to NSAllowsArbitraryLoads.
+		  • NSAllowsArbitraryLoadsForMedia: <video>/<audio> in web pages
+		    can pull from arbitrary HTTP origins.
+		  • NSExceptionDomains: localhost shortcuts, kept for any
+		    in-process bridge / scratch-link emulation.
+
+		The accompanying NSLocalNetworkUsageDescription (below) is
+		required by iOS 14+ for any local-network access; iOS shows it
+		to the user the first time the app reaches a LAN host.
+		-->
 		<key>NSAllowsArbitraryLoadsForMedia</key>
 		<true/>
 		<key>NSAllowsArbitraryLoadsInWebContent</key>
@@ -89,6 +111,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>TurboWarp connects to LEGO bricks (EV3, NXT, Spike Prime, Boost, WeDo) on your Wi-Fi to control motors and read sensors.</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>TurboWarp uses Bluetooth to connect to devices like Lego SPIKE, EV3, and WeDo robots.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>

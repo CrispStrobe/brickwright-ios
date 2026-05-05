@@ -60,8 +60,13 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
+		<!--
+		ATS exceptions. NSAllowsArbitraryLoads is intentionally absent
+		(App-Review-flagged). NSAllowsLocalNetworking + the per-domain
+		exceptions below cover our real needs (LEGO bricks on the local
+		Wi-Fi, plus localhost loopback for in-process bridges).
+		See the comment in Release/Info.plist for full rationale.
+		-->
 		<key>NSAllowsArbitraryLoadsForMedia</key>
 		<true/>
 		<key>NSAllowsArbitraryLoadsInWebContent</key>
@@ -86,6 +91,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>TurboWarp connects to LEGO bricks (EV3, NXT, Spike Prime, Boost, WeDo) on your Wi-Fi to control motors and read sensors.</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>App uses Bluetooth to communicate with external devices.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
