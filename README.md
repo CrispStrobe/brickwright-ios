@@ -1,7 +1,7 @@
 # turbowarp-ios (LEGO build)
 
 A WKWebView-based iOS / iPadOS app that wraps a pre-built [TurboWarp /
-`scratch-gui`](https://github.com/CrispStrobe/scratch-gui) editor and
+`scratch-gui`](https://github.com/CrispStrobe/brickwright) editor and
 intercepts Scratch Link WebSocket calls into native Swift Bluetooth — so
 extensions written for ScratchLink desktop work directly on iPad.
 
@@ -22,7 +22,7 @@ Work-in-progress hardware support:
 | Repo | Role |
 |------|------|
 | **`turbowarp-ios` (this)** | iOS WKWebView shell + native BLE/BTC Scratch-Link emulation. |
-| [`CrispStrobe/scratch-gui`](https://github.com/CrispStrobe/scratch-gui) | The editor UI bundled into the app. |
+| [`CrispStrobe/brickwright`](https://github.com/CrispStrobe/brickwright) | The editor UI bundled into the app. |
 | [`CrispStrobe/extensions`](https://github.com/CrispStrobe/extensions) | Extensions consumed by the editor. |
 | [`CrispStrobe/turbowarp-android`](https://github.com/CrispStrobe/turbowarp-android) | Android counterpart. |
 | [`CrispStrobe/turbowarp-desktop`](https://github.com/CrispStrobe/turbowarp-desktop) | Electron desktop counterpart. |
