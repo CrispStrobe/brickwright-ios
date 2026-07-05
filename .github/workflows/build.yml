@@ -16,7 +16,7 @@ jobs:
       - name: Checkout sibling scratch-gui (the editor that gets bundled)
         uses: actions/checkout@v4
         with:
-          repository: CrispStrobe/scratch-gui
+          repository: CrispStrobe/brickwright
           ref: develop
           path: scratch-gui
 
