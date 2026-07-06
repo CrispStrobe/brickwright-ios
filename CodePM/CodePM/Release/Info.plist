@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>fr_FR</string>
 	<key>CFBundleDisplayName</key>
-	<string>TurboWarp</string>
+	<string>Brickwright</string>
 	<key>CFBundleDocumentTypes</key>
     <array>
         <dict>
