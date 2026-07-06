@@ -26,7 +26,7 @@ Work-in-progress hardware support:
 | [`CrispStrobe/extensions`](https://github.com/CrispStrobe/extensions) | Extensions consumed by the editor. |
 | [`CrispStrobe/brickwright-android`](https://github.com/CrispStrobe/brickwright-android) | Android counterpart. |
 | [`CrispStrobe/brickwright-desktop`](https://github.com/CrispStrobe/brickwright-desktop) | Electron desktop counterpart. |
-| [`CrispStrobe/brickwright-lego`](https://github.com/CrispStrobe/brickwright-lego) | Working sandbox + Python bridges (for desktop bridge-mode). |
+| [`CrispStrobe/brickwright-bridges`](https://github.com/CrispStrobe/brickwright-bridges) | Working sandbox + Python bridges (for desktop bridge-mode). |
 
 ## Disclaimer
 
