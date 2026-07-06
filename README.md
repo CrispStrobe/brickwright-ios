@@ -1,4 +1,4 @@
-# turbowarp-ios (LEGO build)
+# brickwright-ios (LEGO build)
 
 A WKWebView-based iOS / iPadOS app that wraps a pre-built [TurboWarp /
 `scratch-gui`](https://github.com/CrispStrobe/brickwright) editor and
@@ -21,12 +21,12 @@ Work-in-progress hardware support:
 
 | Repo | Role |
 |------|------|
-| **`turbowarp-ios` (this)** | iOS WKWebView shell + native BLE/BTC Scratch-Link emulation. |
+| **`brickwright-ios` (this)** | iOS WKWebView shell + native BLE/BTC Scratch-Link emulation. |
 | [`CrispStrobe/brickwright`](https://github.com/CrispStrobe/brickwright) | The editor UI bundled into the app. |
 | [`CrispStrobe/extensions`](https://github.com/CrispStrobe/extensions) | Extensions consumed by the editor. |
-| [`CrispStrobe/turbowarp-android`](https://github.com/CrispStrobe/turbowarp-android) | Android counterpart. |
-| [`CrispStrobe/turbowarp-desktop`](https://github.com/CrispStrobe/turbowarp-desktop) | Electron desktop counterpart. |
-| [`CrispStrobe/turbowarp-lego`](https://github.com/CrispStrobe/turbowarp-lego) | Working sandbox + Python bridges (for desktop bridge-mode). |
+| [`CrispStrobe/brickwright-android`](https://github.com/CrispStrobe/brickwright-android) | Android counterpart. |
+| [`CrispStrobe/brickwright-desktop`](https://github.com/CrispStrobe/brickwright-desktop) | Electron desktop counterpart. |
+| [`CrispStrobe/brickwright-lego`](https://github.com/CrispStrobe/brickwright-lego) | Working sandbox + Python bridges (for desktop bridge-mode). |
 
 ## Disclaimer
 
@@ -106,7 +106,7 @@ repo-root/
 
 * macOS with Xcode 15+
 * An Apple Developer account (for device deployment)
-* A pre-built TurboWarp `scratch-gui` web build (see the [TurboWarp Desktop repo](https://github.com/CrispStrobe/turbowarp-desktop) for build instructions)
+* A pre-built TurboWarp `scratch-gui` web build (see the [TurboWarp Desktop repo](https://github.com/CrispStrobe/brickwright-desktop) for build instructions)
 * An iPad running iOS 16+ (recommended)
 
 ### The Brain Transplant
