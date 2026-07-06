@@ -14,10 +14,10 @@ jobs:
     name: iOS (.ipa)
     runs-on: macos-latest
     steps:
-      - name: Checkout turbowarp-ios
+      - name: Checkout brickwright-ios
         uses: actions/checkout@v4
         with:
-          path: turbowarp-ios
+          path: brickwright-ios
 
       - name: Checkout sibling scratch-gui
         uses: actions/checkout@v4
@@ -48,12 +48,12 @@ jobs:
 
       - name: Brain transplant — replace CodePM web app with scratch-gui build
         run: |
-          rm -rf turbowarp-ios/build
-          mkdir -p turbowarp-ios/build
-          cp -R scratch-gui/build/. turbowarp-ios/build/
+          rm -rf brickwright-ios/build
+          mkdir -p brickwright-ios/build
+          cp -R scratch-gui/build/. brickwright-ios/build/
 
       - name: Build CodePM .xcarchive (unsigned)
-        working-directory: turbowarp-ios
+        working-directory: brickwright-ios
         run: |
           xcodebuild \
             -project CodePM/CodePM.xcodeproj \
@@ -68,7 +68,7 @@ jobs:
             DEVELOPMENT_TEAM=""
 
       - name: Wrap .xcarchive into versioned unsigned .ipa
-        working-directory: turbowarp-ios
+        working-directory: brickwright-ios
         run: |
           APP_PATH="build-out/CodePM.xcarchive/Products/Applications"
           APP_NAME=$(ls "$APP_PATH" | head -1)
@@ -80,7 +80,7 @@ jobs:
       - name: Attach .ipa to Release
         uses: softprops/action-gh-release@v2
         with:
-          files: turbowarp-ios/TurboWarp-${{ github.ref_name }}-unsigned.ipa
+          files: brickwright-ios/TurboWarp-${{ github.ref_name }}-unsigned.ipa
           draft: false
           prerelease: true
           generate_release_notes: true
