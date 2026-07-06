@@ -8,10 +8,10 @@ jobs:
     name: iOS (.ipa)
     runs-on: macos-latest
     steps:
-      - name: Checkout turbowarp-ios
+      - name: Checkout brickwright-ios
         uses: actions/checkout@v4
         with:
-          path: turbowarp-ios
+          path: brickwright-ios
 
       - name: Checkout sibling scratch-gui (the editor that gets bundled)
         uses: actions/checkout@v4
@@ -44,13 +44,13 @@ jobs:
 
       - name: Brain transplant — replace CodePM web app with scratch-gui build
         run: |
-          rm -rf turbowarp-ios/build
-          mkdir -p turbowarp-ios/build
-          cp -R scratch-gui/build/. turbowarp-ios/build/
-          ls turbowarp-ios/build/editor.html turbowarp-ios/build/index.html
+          rm -rf brickwright-ios/build
+          mkdir -p brickwright-ios/build
+          cp -R scratch-gui/build/. brickwright-ios/build/
+          ls brickwright-ios/build/editor.html brickwright-ios/build/index.html
 
       - name: Build CodePM .xcarchive (unsigned)
-        working-directory: turbowarp-ios
+        working-directory: brickwright-ios
         run: |
           xcodebuild \
             -project CodePM/CodePM.xcodeproj \
@@ -65,7 +65,7 @@ jobs:
             DEVELOPMENT_TEAM=""
 
       - name: Wrap .xcarchive into unsigned .ipa
-        working-directory: turbowarp-ios
+        working-directory: brickwright-ios
         run: |
           APP_PATH="build-out/CodePM.xcarchive/Products/Applications"
           APP_NAME=$(ls "$APP_PATH" | head -1)
@@ -77,5 +77,5 @@ jobs:
       - name: Upload .ipa artifact
         uses: actions/upload-artifact@v4
         with:
-          name: turbowarp-ios-ipa
-          path: turbowarp-ios/TurboWarp-unsigned.ipa
+          name: brickwright-ios-ipa
+          path: brickwright-ios/TurboWarp-unsigned.ipa
