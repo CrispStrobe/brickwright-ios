@@ -1,0 +1,65 @@
+# Remote-loading variant: instead of the "brain transplant" that bundles the full
+# Brickwright web build (~200 MB) into the app, this sets BrickwrightRemoteURL in
+# Info.plist so the WKWebView loads the hosted editor
+# (https://crispstrobe.github.io/brickwright/). CodePM (MIT) is the only thing shipped
+# in the binary — the App-Store-oriented build. The default (bundled) release.yml is
+# untouched. Uploads an unsigned .ipa artifact on the run.
+#
+# NOTE: needs on-device verification — confirm the extension gallery and the
+# CoreBluetooth/ExternalAccessory bridges still work when the content loads from a
+# remote https origin rather than the local file origin.
+name: Build (remote-loading variant)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: iOS (.ipa, remote)
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: brickwright-ios
+
+      - name: Minimal offline fallback (the app loads the hosted editor)
+        run: |
+          rm -rf brickwright-ios/build
+          mkdir -p brickwright-ios/build
+          printf '%s' '<!doctype html><meta charset="utf-8"><title>Brickwright</title><body style="margin:0;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;text-align:center;color:#555"><p>Loading Brickwright&hellip;<br><small>This build needs an internet connection.</small></p></body>' > brickwright-ios/build/index.html
+
+      - name: Point the app at the hosted editor
+        run: |
+          PLIST=brickwright-ios/CodePM/CodePM/Release/Info.plist
+          /usr/libexec/PlistBuddy -c "Add :BrickwrightRemoteURL string https://crispstrobe.github.io/brickwright/" "$PLIST" \
+            || /usr/libexec/PlistBuddy -c "Set :BrickwrightRemoteURL https://crispstrobe.github.io/brickwright/" "$PLIST"
+
+      - name: Build CodePM .xcarchive (unsigned)
+        working-directory: brickwright-ios
+        run: |
+          xcodebuild \
+            -project CodePM/CodePM.xcodeproj \
+            -scheme CodePM \
+            -configuration Release \
+            -sdk iphoneos \
+            -archivePath "$PWD/build-out/CodePM.xcarchive" \
+            archive \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            DEVELOPMENT_TEAM=""
+
+      - name: Wrap .xcarchive into unsigned .ipa
+        working-directory: brickwright-ios
+        run: |
+          APP_PATH="build-out/CodePM.xcarchive/Products/Applications"
+          APP_NAME=$(ls "$APP_PATH" | head -1)
+          mkdir -p Payload
+          cp -R "$APP_PATH/$APP_NAME" Payload/
+          zip -qr "brickwright-ios-remote-unsigned.ipa" Payload
+          ls -lh "brickwright-ios-remote-unsigned.ipa"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-remote-ipa
+          path: brickwright-ios/brickwright-ios-remote-unsigned.ipa

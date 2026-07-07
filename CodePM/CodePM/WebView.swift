@@ -20,8 +20,15 @@ struct WebView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> ScratchWebViewController {
         // On définit le coordinateur comme délégué du contrôleur web
         webViewController.delegate = context.coordinator
-        // Chargement d'un fichier HTML local à partir du répertoire
-        webViewController.load(url: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("index.html"))
+        // If BrickwrightRemoteURL is set in Info.plist, load the hosted editor (the
+        // "loads the web app remotely" App-Store variant); otherwise load the bundled
+        // local index.html (default, unchanged).
+        if let remote = Bundle.main.object(forInfoDictionaryKey: "BrickwrightRemoteURL") as? String,
+           !remote.isEmpty, let remoteURL = URL(string: remote) {
+            webViewController.load(url: remoteURL)
+        } else {
+            webViewController.load(url: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("index.html"))
+        }
         return webViewController
     }
     
