@@ -36,8 +36,6 @@ Community-created modification built on:
 - [TurboWarp](https://github.com/TurboWarp) — the Scratch compiler and editor.
 - [Scratch](https://github.com/LLK/scratch-gui) — the block-based language.
 
-LEGO® is a trademark of the LEGO Group. The LEGO Group does not sponsor,
-authorize, or endorse this software.
 
 ---
 
