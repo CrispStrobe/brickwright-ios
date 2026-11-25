@@ -1,7 +1,7 @@
 # brickwright-ios (LEGO build)
 
 A WKWebView-based iOS / iPadOS app that wraps a pre-built [TurboWarp /
-`scratch-gui`](https://github.com/CrispStrobe/brickwright) editor and
+`scratch-gui`](https://github.com/CrispStrobe/brickwright-legacy) editor and
 intercepts Scratch Link WebSocket calls into native Swift Bluetooth — so
 extensions written for ScratchLink desktop work directly on iPad.
 
@@ -22,7 +22,7 @@ Work-in-progress hardware support:
 | Repo | Role |
 |------|------|
 | **`brickwright-ios` (this)** | iOS WKWebView shell + native BLE/BTC Scratch-Link emulation. |
-| [`CrispStrobe/brickwright`](https://github.com/CrispStrobe/brickwright) | The editor UI bundled into the app. |
+| [`CrispStrobe/brickwright-legacy`](https://github.com/CrispStrobe/brickwright-legacy) | The editor UI bundled into the app. |
 | [`CrispStrobe/extensions`](https://github.com/CrispStrobe/extensions) | Extensions consumed by the editor. |
 | [`CrispStrobe/brickwright-android`](https://github.com/CrispStrobe/brickwright-android) | Android counterpart. |
 | [`CrispStrobe/brickwright-desktop`](https://github.com/CrispStrobe/brickwright-desktop) | Electron desktop counterpart. |
