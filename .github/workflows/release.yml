@@ -22,7 +22,7 @@ jobs:
       - name: Checkout sibling scratch-gui
         uses: actions/checkout@v4
         with:
-          repository: CrispStrobe/brickwright
+          repository: CrispStrobe/brickwright-legacy
           ref: develop
           path: scratch-gui
 
